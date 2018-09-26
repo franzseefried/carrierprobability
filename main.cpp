@@ -49,7 +49,7 @@ int animal::initPed(string input){
        if(nped % 1000000 == 0)
            cout << Lanimal.ID << " " << Lanimal.SIRE << " " << Lanimal.DAM << " " << Lanimal.DOB << " " << Lanimal.ITBID16 << " " << Lanimal.TVDID12 << " " << Lanimal.SEKTION << " " << Lanimal.ALIVE << " " << Lanimal.HBSTUFE << " " << Lanimal.BREED3 << endl;
     }
-    cout << "Finished reading Haplotypefile at No. of records " << nped << endl;
+    cout << "Finished reading Pedigreefile at No. of records " << nped << endl;
     return nped;
 }
 //Methode zum einlesen der Haplotypenergebnisse
