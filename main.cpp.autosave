@@ -111,8 +111,6 @@ int main()
     LCANIMAL=new animal();
     LCANIMAL->initPed(pedifile);
 
-
-
     recessive* LCrecessive;
     LCrecessive=new recessive();
     double lAllelefreq;
