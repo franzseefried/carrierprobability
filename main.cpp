@@ -60,6 +60,9 @@ public:
     void printHaplo();
     //Haplo abbauen
     void destroyHaplo();
+    //Allelfrequenz berechnen
+    string calcAllelfrq();
+    void giveGT(int);
 };
 //methode zum Datensetzen == NULLrecord setzen
 void animal::datenSetzen(){
@@ -122,17 +125,30 @@ void recessive::destroyHaplo(){
         delete(next);
     }
 }
+void recessive::giveGT(int inani){
+    if(gt == inani){
+        cout << tvd << ";" << gt << endl;
+     }
+    if(next != nullptr)
+        //string lstring=tvd;
+        next->giveGT(inani);
+}
 
 int main()
 {
     string parfile,pedifile,haplofile,zeile,lITB,lTVD,lSEKTION,lHB,lBD3,ltvd,litbnummer,ltvdsire,lsektion,lpct,ldichte,ldateofbirth;;
     int lID,lSIRE,lDAM,lYOB,lDOB,lALIVE,lgt,lidanimal;
+    int lallelef;
+
+
+
     parfile="/Users/fseefried/Documents/projects/carrierprobability/carrierprobability.prm";
     cout << parfile << endl;
     pedifile=readPrmFile(parfile,"Pedigree");
     haplofile=readPrmFile(parfile,"Haplotypefile");
     cout << "\n Pedigree was given as:      " << pedifile << endl;
     cout << "\n Haplotypefile was given as: " << haplofile << endl;
+
 
     //Zeiger auf den listenbeginn
     animal* animalanfang;
@@ -185,7 +201,11 @@ int main()
             recende=lhzeiger;
         }
     cout << "\n Haplofile gelesen" << endl;
-    recanfang->printHaplo();
+    //recanfang->printHaplo();
+    string istring="US031493352789";
+    cout << istring << endl;
+    recanfang->giveGT(2);
+//cout << igt << endl;
 
     animalanfang->destroyPedi();
     recanfang->destroyHaplo();
