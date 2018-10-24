@@ -62,7 +62,7 @@ public:
     void destroyHaplo();
     //Allelfrequenz berechnen
     string calcAllelfrq();
-    void giveGT(int);
+    int giveGT(string);
 };
 //methode zum Datensetzen == NULLrecord setzen
 void animal::datenSetzen(){
@@ -125,10 +125,11 @@ void recessive::destroyHaplo(){
         delete(next);
     }
 }
-void recessive::giveGT(int inani){
-    if(gt == inani){
-        cout << tvd << ";" << gt << endl;
-     }
+int recessive::giveGT(string inani){
+    if(tvd == inani){
+        //cout << tvd << ";" << gt << endl;
+        return gt;
+    }
     if(next != nullptr)
         //string lstring=tvd;
         next->giveGT(inani);
@@ -137,7 +138,7 @@ void recessive::giveGT(int inani){
 int main()
 {
     string parfile,pedifile,haplofile,zeile,lITB,lTVD,lSEKTION,lHB,lBD3,ltvd,litbnummer,ltvdsire,lsektion,lpct,ldichte,ldateofbirth;;
-    int lID,lSIRE,lDAM,lYOB,lDOB,lALIVE,lgt,lidanimal;
+    int lID,lSIRE,lDAM,lYOB,lDOB,lALIVE,lgt,lidanimal,gtback;
     int lallelef;
 
 
@@ -202,10 +203,11 @@ int main()
         }
     cout << "\n Haplofile gelesen" << endl;
     //recanfang->printHaplo();
-    string istring="US031493352789";
+    string istring="AT009154578289";
     cout << istring << endl;
-    recanfang->giveGT(2);
-//cout << igt << endl;
+
+    gtback=(recanfang->giveGT(istring));
+    cout << gtback << endl;
 
     animalanfang->destroyPedi();
     recanfang->destroyHaplo();
