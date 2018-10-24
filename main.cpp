@@ -62,7 +62,7 @@ public:
     void destroyHaplo();
     //Allelfrequenz berechnen
     string calcAllelfrq();
-    int giveGT(string);
+    void giveGT(string);
 };
 //methode zum Datensetzen == NULLrecord setzen
 void animal::datenSetzen(){
@@ -125,10 +125,10 @@ void recessive::destroyHaplo(){
         delete(next);
     }
 }
-int recessive::giveGT(string inani){
+void recessive::giveGT(string inani){
     if(tvd == inani){
-        //cout << tvd << ";" << gt << endl;
-        return gt;
+        cout << tvd << ";" << gt << endl;
+        //return gt;
     }
     if(next != nullptr)
         //string lstring=tvd;
@@ -206,8 +206,9 @@ int main()
     string istring="AT009154578289";
     cout << istring << endl;
 
-    gtback=(recanfang->giveGT(istring));
-    cout << gtback << endl;
+    recanfang->giveGT(istring);
+
+    //cout << gtback << endl;
 
     animalanfang->destroyPedi();
     recanfang->destroyHaplo();
